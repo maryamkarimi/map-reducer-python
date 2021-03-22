@@ -39,7 +39,7 @@
   The input of MR 3 is the output of MR 2 which is a sorted list of pairs in the following form: `term doc_identifier tf   df`
   
   * **Output**  
-  The output of MR 3 is a list of pairs in the following form: `((term doc_identifier), (tf df idf))`
+  The output of MR 3 is a list of pairs in the following form: `((term doc_identifier), (tf idf tf-idf))`
 
 * **Example**   
 If we have three files `1.txt`, `2.txt`, and `3.txt` in our `Documents` and the content of each file is as follows:  
@@ -122,7 +122,7 @@ If we have three files `1.txt`, `2.txt`, and `3.txt` in our `Documents` and the 
   **Mapper 3** will receive the above pairs and simply flip the order of document identifier and term. This will ensure pairs will get sorted by doc as key which is needed for the next reducer to be able to calculate the total number of documents in the corpus.
 
   **Reducer 3** receives the above pairs and calculates idf and tf-idf. It will emit the following pairs:  
-  `((term doc_identifier), (tf df idf))`  
+  `((term doc_identifier), (tf idf tf-idf))`  
 
   `((1.txt, and), (0.142857142857, 0.0, 0.0))`  
   `((1.txt, is), (0.142857142857, 0.0, 0.0))`  
