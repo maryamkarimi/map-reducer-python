@@ -3,7 +3,7 @@
 ## **Notes**
 * This solution consists of two mapReducers.
 * The first MR counts the frequency of every bigram in a single document.
-* The second MR recieves the output of first MR as input and counts the total number of bigrams that only appear once in a document.
+* The second MR receives the output of first MR as input and counts the total number of bigrams that only appear once in a document.
 * All the code is written in Python 2.6.6.
 * To test the mappers and reducers using pipes use:
 
@@ -51,13 +51,13 @@ If we have a file with the following content: `"hello hi hello hi"`
   `(hi hello   1)`  
   `(hello hi   1)`  
 
-  **Reducer 1** will recieve these pairs (sorted) as input through STDIN and emit:  
+  **Reducer 1** will receive these pairs (sorted) as input through STDIN and emit:  
   `(hello hi, 2)`  
   `(hi hello, 1)`  
 
   Then, **Mapper 2** will check the counts in these pairs and for every pair with count set to 1, emit: `1`
 
-  Finally, **Reducer 2** will add up all the `1`s it recieves and emit the total count.
+  Finally, **Reducer 2** will add up all the `1`s it receives and emit the total count.
 
 ## **Hadoop Instructions**
 See runMR.sh

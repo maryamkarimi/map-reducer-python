@@ -18,7 +18,7 @@
 
   MapReducer 1 Calculates tf for every term and doc.
   * **Input:**  
-  The input of MR 1 is the files located in the `Documents` directory. The mapper reads the contents of every file line by line. The mapper does not recieve anything from STDIN.
+  The input of MR 1 is the files located in the `Documents` directory. The mapper reads the contents of every file line by line. The mapper does not receive anything from STDIN.
   
   * **Output**  
   The output of MR 1 is a list of pairs in the following form:`doc_identifier term    tf`
@@ -70,7 +70,7 @@ If we have three files `1.txt`, `2.txt`, and `3.txt` in our `Documents` and the 
   `(3.txt spooky	 1)`  
   `(3.txt This	 1)`  
 
-  **Reducer 1** will recieve the above pairs as input through STDIN, calculate the tf of every term and document and emit:  
+  **Reducer 1** will receive the above pairs as input through STDIN, calculate the tf of every term and document and emit:  
   `(1.txt and 	0.142857142857)`  
   `(1.txt is 	0.142857142857)`  
   `(1.txt long  	0.142857142857)`  
@@ -92,10 +92,10 @@ If we have three files `1.txt`, `2.txt`, and `3.txt` in our `Documents` and the 
   `(3.txt spooky 	0.166666666667)`  
   `(3.txt This 	0.166666666667)`
 
-  **Mapper 2** will recieve the above pairs and simply flip the order of document identifier and term. This will ensure pairs will get sorted by term as key which is needed for the next reducer to be able to calculate df of every term.
+  **Mapper 2** will receive the above pairs and simply flip the order of document identifier and term. This will ensure pairs will get sorted by term as key which is needed for the next reducer to be able to calculate df of every term.
 
 
-  **Reducer 2** will recieve the above pairs and calculates df of every term and emit:   
+  **Reducer 2** will receive the above pairs and calculates df of every term and emit:   
   `term doc_identifier tf  df`  
 
   `(and 1.txt 0.142857142857 	3)`  
@@ -119,9 +119,9 @@ If we have three files `1.txt`, `2.txt`, and `3.txt` in our `Documents` and the 
   `(This 3.txt 0.166666666667 	3)`  
   `(very 1.txt 0.142857142857	 1)`
 
-  **Mapper 3** will recieve the above pairs and simply flip the order of document identifier and term. This will ensure pairs will get sorted by doc as key which is needed for the next reducer to be able to calculate the total number of documents in the corpus.
+  **Mapper 3** will receive the above pairs and simply flip the order of document identifier and term. This will ensure pairs will get sorted by doc as key which is needed for the next reducer to be able to calculate the total number of documents in the corpus.
 
-  **Reducer 3** recieves the above pairs and calculates idf and tf-idf. It will emit the following pairs:  
+  **Reducer 3** receives the above pairs and calculates idf and tf-idf. It will emit the following pairs:  
   `((term doc_identifier), (tf df idf))`  
 
   `((1.txt, and), (0.142857142857, 0.0, 0.0))`  

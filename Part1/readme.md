@@ -8,7 +8,7 @@
 
 ### MR Input & Output
 * **Input**  
-The input of this MapReducer is the files located in the `inputDirectory` directory. The mapper reads the contents of every file line by line. The mapper does not recieve anything from STDIN.
+The input of this MapReducer is the files located in the `inputDirectory` directory. The mapper reads the contents of every file line by line. The mapper does not receive anything from STDIN.
 
 * **Output**  
 The output of this MapReducer is a list of pairs in the following form:  
@@ -22,6 +22,6 @@ The mapper will read these files and emit the following pairs:
 `(hello 1.txt   1)`  
 `(hello 1.txt   1)`  
 `(hi 2.txt   1)`  
-The reducer will recieve these pairs as input through STDIN and emit:  
+The reducer will receive these pairs as input through STDIN and emit:  
 `((hello 1.txt), 2)`  
 `((hi 2.txt), 1)`

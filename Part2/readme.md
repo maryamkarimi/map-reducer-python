@@ -31,7 +31,7 @@ The mapper will read the content of this file and emit the following pairs:
 `(hello hi   1)`  
 `(hi hello   1)`  
 `(hello hi   1)`  
-The reducer will recieve these pairs as input through STDIN and emit:  
+The reducer will receive these pairs as input through STDIN and emit:  
 `(hello hi, 2)`  
 `(hi hello, 1)`
 
